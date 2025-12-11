@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usman, Ahsan, Ebad & Obaid - The Taste of Pakistan</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* --- GLOBAL STYLES --- */
+        :root {
+            --pak-green: #004225; /* Pakistan Green */
+            --gold: #d4af37;      /* Shahi Gold */
+            --dark: #1a1a1a;
+            --white: #ffffff;
+            --light-bg: #fdfbf7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        nav {
+            background: var(--pak-green);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo {
+            font-size: 18px; 
+            font-weight: bold;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 2px solid var(--gold);
+            padding: 8px 15px;
+            white-space: nowrap; 
+        }
+
+        .logo span { color: var(--gold); }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .nav-links li a:hover { color: var(--gold); }
+
+        .btn-login {
+            background: var(--gold);
+            color: var(--pak-green);
+            padding: 8px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+
+        /* --- HERO SECTION (Landing) --- */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1541544741938-0af808871cc0?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Parallax Effect */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+            color: var(--gold);
+            text-shadow: 2px 2px 4px black;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 40px;
+            max-width: 800px;
+            line-height: 1.5;
+        }
+
+        .hero-btn {
+            padding: 15px 40px;
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            font-size: 18px;
+            cursor: pointer;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-btn:hover {
+            background: var(--gold);
+            color: var(--pak-green);
+        }
+
+        /* --- ABOUT SECTION --- */
+        .section-padding { padding: 80px 10%; }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 40px;
+            color: var(--pak-green);
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 10px 10px 0px var(--gold);
+        }
+
+        /* --- SPECIALTIES (Cards) --- */
+        .specialties {
+            background: var(--pak-green);
+            color: white;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 40px;
+            margin-bottom: 50px;
+            color: var(--gold);
+        }
+
+        .card-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .special-card {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            width: 23%;
+            border: 1px solid var(--gold);
+            transition: 0.3s;
+        }
+
+        .special-card:hover {
+            background: var(--gold);
+            color: var(--pak-green);
+            transform: translateY(-10px);
+        }
+
+        .special-card i {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        /* --- FULL MENU SECTION --- */
+        .menu-section {
+            background: var(--light-bg);
+        }
+
+        .menu-category {
+            margin-bottom: 40px;
+        }
+
+        .category-title {
+            font-size: 28px;
+            color: var(--pak-green);
+            border-bottom: 2px solid var(--gold);
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 10px;
+        }
+
+        .item-name h4 { font-size: 18px; margin-bottom: 5px; }
+        .item-desc { font-size: 14px; color: #666; font-style: italic; }
+        .item-price { font-size: 18px; font-weight: bold; color: var(--pak-green); }
+        
+        .order-btn-small {
+            background: var(--gold);
+            color: black;
+            border: none;
+            padding: 5px 10px;
+            font-size: 12px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        /* --- GALLERY / BANNER --- */
+        .banner {
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1631452180519-c014fe946bc7?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .banner h2 {
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 20px 40px;
+            border: 2px solid var(--gold);
+            font-size: 35px;
+        }
+
+        /* --- RESERVATION & LOGIN --- */
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .form-box {
+            background: white;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-top: 5px solid var(--pak-green);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--pak-green);
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .submit-btn:hover { background: var(--gold); color: black; }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #111;
+            color: #aaa;
+            padding: 50px 10%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        footer h3 { color: white; margin-bottom: 20px; }
+        footer p { margin-bottom: 10px; }
+        
+        .footer-bottom {
+            background: black;
+            color: #555;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .logo { font-size: 14px; white-space: normal; text-align: center; }
+            .nav-links { display: none; }
+            .about-grid, .form-grid, .card-container { grid-template-columns: 1fr; }
+            .special-card { width: 100%; }
+            .hero h1 { font-size: 35px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <!-- Full Name Logo -->
+        <div class="logo">USMAN, AHSAN, EBAD & OBAID</div>
+        
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#reservation">Book Table</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a href="#login" class="btn-login" onclick="toggleLogin()">LOGIN</a>
+    </nav>
+
+    <!-- 1. HERO SECTION -->
+    <section id="home" class="hero">
+        <h1>Usman, Ahsan, Ebad & Obaid</h1>
+        <p>Experience the Authentic Taste of Pakistan. <br> From Lahore's Street Food to Karachi's Spicy Delights.</p>
+        <button class="hero-btn" onclick="location.href='#menu'">View Full Menu</button>
+    </section>
+
+    <!-- 2. ABOUT US (LONG STORY) -->
+    <section id="about" class="section-padding">
+        <div class="about-grid">
+            <div class="about-img">
+                <img src="https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=800&q=80" alt="Restaurant Interior">
+            </div>
+            <div class="about-text">
+                <h2>A Legacy of Friendship & Taste</h2>
+                <p><strong>Welcome to Usman, Ahsan, Ebad & Obaid Foods.</strong> Located in the heart of Pakistan, our restaurant is a symbol of brotherhood and culinary excellence.</p>
+                <p>It all started when four friends from Pakistan decided to bring their favorite homemade recipes to the world. <strong>Usman</strong> is the master of BBQ, <strong>Ahsan</strong> specializes in aromatic Rice dishes, <strong>Ebad</strong> brings the spicy Karahi perfection, and <strong>Obaid</strong> crafts the sweetest traditional desserts.</p>
+                <p>We do not serve just food; we serve the culture of Pakistan. Every grain of rice and every spice is locally sourced to ensure you get the true <em>"Watan Ka Zaiqa"</em>.</p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Flag_of_Pakistan.svg/320px-Flag_of_Pakistan.svg.png" style="width: 50px; border:1px solid #ddd;" alt="Pakistan Flag">
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. SPECIALTIES -->
+    <section class="section-padding specialties">
+        <h2 class="section-title">Why Choose Us?</h2>
+        <div class="card-container">
+            <div class="special-card">
+                <i class="fas fa-drumstick-bite"></i>
+                <h3>Fresh Halal Meat</h3>
+                <p>Daily slaughtered fresh meat ensuring 100% Halal standards.</p>
+            </div>
+            <div class="special-card">
+                <i class="fas fa-pepper-hot"></i>
+                <h3>Desi Spices</h3>
+                <p>Authentic spices ground in-house for that perfect kick.</p>
+            </div>
+            <div class="special-card">
+                <i class="fas fa-users"></i>
+                <h3>Family Hall</h3>
+                <p>Separate privacy seating for families and large gatherings.</p>
+            </div>
+            <div class="special-card">
+                <i class="fas fa-motorcycle"></i>
+                <h3>Fast Delivery</h3>
+                <p>Hot food delivered anywhere in the city within 40 minutes.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. DETAILED MENU (LONG LIST) -->
+    <section id="menu" class="section-padding menu-section">
+        <div style="text-align: center;">
+            <h2 class="section-title" style="color: var(--pak-green);">Our Royal Menu</h2>
+            <p style="margin-bottom: 50px;">Pricing in Pakistani Rupees (PKR)</p>
+        </div>
+
+        <div class="about-grid" style="align-items: start;">
+            
+            <!-- Column 1 -->
+            <div>
+                <div class="menu-category">
+                    <h3 class="category-title">BBQ & Starters (Usman's Special)</h3>
+                    
+                    <div class="menu-item">
+                        <div class="item-name"><h4>Chicken Tikka (Leg/Chest)</h4><div class="item-desc">Marinated in yogurt and red spices.</div></div>
+                        <div class="item-price">Rs. 450 <button class="order-btn-small" onclick="order('Tikka')">Add</button></div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-name"><h4>Beef Seekh Kabab (4 Pcs)</h4><div class="item-desc">Juicy minced beef grilled over charcoal.</div></div>
+                        <div class="item-price">Rs. 800 <button class="order-btn-small" onclick="order('Seekh Kabab')">Add</button></div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-name"><h4>Malai Boti Platter</h4><div class="item-desc">Creamy, melt-in-the-mouth chicken chunks.</div></div>
+                        <div class="item-price">Rs. 1200 <button class="order-btn-small" onclick="order('Malai Boti')">Add</button></div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3 class="category-title">Main Courses (Ebad's Special)</h3>
+                    
+                    <div class="menu-item">
+                        <div class="item-name"><h4>Chicken Karahi (Half/Full)</h4><div class="item-desc">Cooked in tomato base with green chilies.</div></div>
+                        <div class="item-price">Rs. 1500 <button class="order-btn-small" onclick="order('Karahi')">Add</button></div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-name"><h4>Mutton Handi</h4><div class="item-desc">Boneless mutton slow-cooked in clay pot.</div></div>
+                        <div class="item-price">Rs. 2200 <button class="order-btn-small" onclick="order('Mutton Handi')">Add</button></div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-name"><h4>Nihari (Beef)</h4><div class="item-desc">Traditional breakfast stew with shank meat.</div></div>
+                        <div class="item-price">Rs. 950 <button class="order-btn-small" onclick="order('Nihari')">Add</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Column 2 -->
+            <div>
+                <div class="menu-category">
+                    <h3 class="category-title">Rice & Breads (Ahsan's Special)</h3>
+                    
+                    <div class="menu-item">
+                        <div class="item-name"><h4>Chicken Biryani</h4><div class="item-desc">Sindhi style spicy biryani with potato.</div></div>
+                        <div class="item-price">Rs. 550 <button class="order-btn-small" onclick="order('Biryani')">Add</button></div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-name"><h4>Mutton Pulao</h4><div class="item-desc">Yakhni pulao cooked with mutton stock.</div></div>
+                        <div class="item-price">Rs. 900 <button class="order-btn-small" onclick="order('Pulao')">Add</button></div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-name"><h4>Roghnii Naan / Garlic Naan</h4><div class="item-desc">Freshly baked from Tandoor.</div></div>
+                        <div class="item-price">Rs. 100 <button class="order-btn-small" onclick="order('Naan')">Add</button></div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3 class="category-title">Desserts & Drinks (Obaid's Special)</h3>
+                    
+                    <div class="menu-item">
+                        <div class="item-name"><h4>Gulab Jamun (Hot)</h4><div class="item-desc">Served with pistachio garnish.</div></div>
+                        <div class="item-price">Rs. 300 <button class="order-btn-small" onclick="order('Gulab Jamun')">Add</button></div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-name"><h4>Kheer (Clay Pot)</h4><div class="item-desc">Traditional rice pudding.</div></div>
+                        <div class="item-price">Rs. 250 <button class="order-btn-small" onclick="order('Kheer')">Add</button></div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="item-name"><h4>Lassi (Sweet/Salty)</h4><div class="item-desc">Tall glass of pure yogurt drink.</div></div>
+                        <div class="item-price">Rs. 200 <button class="order-btn-small" onclick="order('Lassi')">Add</button></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. BANNER IMAGE -->
+    <div class="banner">
+        <h2>"Best Desi Food in Town"</h2>
+    </div>
+
+    <!-- 6. RESERVATION & LOGIN AREA -->
+    <section id="login" class="section-padding" style="background: #eee;">
+        <div class="form-grid">
+            
+            <!-- Table Reservation -->
+            <div class="form-box" id="reservation">
+                <h3>Book A Table</h3>
+                <p>Reserve a spot for your family.</p>
+                <br>
+                <form onsubmit="alert('Table Booked Successfully!'); return false;">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="tel" placeholder="Phone Number (0300...)" required>
+                    <input type="number" placeholder="Number of Guests" required>
+                    <input type="date" required>
+                    <textarea placeholder="Special Request (e.g. Birthday decor)" rows="3"></textarea>
+                    <button type="submit" class="submit-btn">CONFIRM BOOKING</button>
+                </form>
+            </div>
+
+            <!-- Customer Login -->
+            <div class="form-box">
+                <h3>Customer Login</h3>
+                <p>Login to track your home delivery.</p>
+                <br>
+                <form onsubmit="alert('Logged In Successfully!'); return false;">
+                    <input type="email" placeholder="Email Address" required>
+                    <input type="password" placeholder="Password" required>
+                    <button type="submit" class="submit-btn" style="background: var(--dark);">LOGIN</button>
+                    <p style="margin-top:15px; font-size:13px;">Forgot Password?</p>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 7. FOOTER -->
+    <footer id="contact">
+        <div>
+            <h3>USMAN, AHSAN, EBAD & OBAID</h3>
+            <p>The finest Pakistani cuisine served with love and tradition.</p>
+        </div>
+    
